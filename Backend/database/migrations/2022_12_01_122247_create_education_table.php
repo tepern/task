@@ -14,7 +14,11 @@ class CreateEducationTable extends Migration
     public function up()
     {
         Schema::create('education', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedInteger('education_type_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('education_type_id')->references('id')->on('education_types');
             $table->timestamps();
         });
     }
