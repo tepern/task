@@ -41,4 +41,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the education associated with the user.
+     */
+    public function education()
+    {
+        return $this->hasOne(Education::class);
+    }
+
+    /**
+     * The cities that belong to the user.
+     */
+    public function cities()
+    {
+        return $this->belongsToMany(City::class);
+    }
 }
