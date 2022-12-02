@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+$groupData = [
+    'namespace' => '\App\Http\Controllers',
+    'prefix' => 'education',
+];
+Route::group($groupData, function() {
+    //User
+    $methods = ['index', 'show'];
+    
+    Route::resource('user','UserController')->names('education.user');
+});

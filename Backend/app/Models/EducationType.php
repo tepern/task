@@ -33,4 +33,12 @@ class EducationType extends Model
     protected $fillable = [
         'name',
     ];
+
+    /**
+     * Get the education type for the user education.
+     */
+    public function education()
+    {
+        return $this->hasMany(Education::class, 'education_type_id');
+    }
 }

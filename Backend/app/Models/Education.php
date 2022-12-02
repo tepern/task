@@ -40,6 +40,6 @@ class Education extends Model
      */
     public function educationType()
     {
-        return $this->belongsTo(EducationType::class);
+        return $this->belongsTo(EducationType::class, 'education_type_id');
     }
 }
